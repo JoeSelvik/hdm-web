@@ -4,41 +4,110 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Herp Derp Madness</title>
 
-    <!-- Custom styles for this template -->
+    <!-- Custom stylesheets -->
     <link href="css/app.css" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap stylesheets -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
   </head>
   <body>
-    <!-- <h1>Hello, world!</h1> -->
+    
 
-    <div class="container">
+<!-- http://stackoverflow.com/questions/19099583/bracket-display-with-twitter-bootstrap -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
-      <div class="starter-template">
-        <h1>Herp Derp Madness</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+        <table class="table-condensed" style="width:100%">
+          <tr style="border-style: solid;">
+            <td class="col-md-5" style="background-color:red;">
+              <div class="input-group">
+                <div class="form-control">Team 1</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">1</span>
+                </span>
+              </div>
+            </td>
 
-    </div><!-- /.container -->
+            <td class="col-md-2" rowspan="2" style="padding:0px; position:relative; min-width:50px; background-color:blue;">
+              <div style="border-top: 2px solid #090; border-right: 2px solid #090; width:80%; height:25%; float: left; position:absolute; top:25%;"></div>
+              <div style="border-bottom: 2px solid #f00; border-right: 2px solid #f00; width:80%; height:25%; float: left; position:absolute; top:50%;"></div>
+              <div style="border-top: 2px solid #090; width: 20%; margin-left: 80%; float: right; position:absolute;"></div>
+            </td>
+
+            <td class="col-md-5" rowspan="2" style="background-color:green;">
+              <div class="input-group">
+                <div class="form-control">Team 1</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">0</span>
+                </span>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="border-style: dotted;">
+            <td style="background-color:yellow;">
+              <div class="input-group">
+                <div class="form-control">Team 2</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">0</span>
+                </span>
+              </div>
+            </td>
+          </tr>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+
+          <tr style="border-style: solid;">
+            <td class="col-md-5" style="background-color:red;">
+              <div class="input-group">
+                <div class="form-control">Team 3</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">1</span>
+                </span>
+              </div>
+            </td>
+
+            <td class="col-md-2" rowspan="2" style="padding:0px; position:relative; min-width:50px; background-color:blue;">
+              <div style="border-top: 2px solid #090; border-right: 2px solid #090; width:80%; height:25%; float: left; position:absolute; top:25%;"></div>
+              <div style="border-bottom: 2px solid #f00; border-right: 2px solid #f00; width:80%; height:25%; float: left; position:absolute; top:50%;"></div>
+              <div style="border-top: 2px solid #090; width: 20%; margin-left: 80%; float: right; position:absolute;"></div>
+            </td>
+
+            <td class="col-md-5" rowspan="2" style="background-color:green;">
+              <div class="input-group">
+                <div class="form-control">Team 3</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">0</span>
+                </span>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="border-style: dotted;">
+            <td style="background-color:yellow;">
+              <div class="input-group">
+                <div class="form-control">Team 4</div>
+                <span class="input-group-addon">
+                  <span class="badge pull-right">0</span>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript, at end of the file so  pages load faster -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
