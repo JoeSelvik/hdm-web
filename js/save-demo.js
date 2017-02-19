@@ -1,4 +1,4 @@
-var saveData = {
+var bracketData = {
   teams: [
     ["Team 1", "Team 2"],
     ["Team 3", "jim"],
@@ -7,28 +7,23 @@ var saveData = {
   ],
   results: [
       [
-        [[1, 0], [null, null], [null, null], [null, null]],
-        [[null, null], [1, 4]],
-        [[null, null], [null, null]]
+        [ // firstRound
+		  [1, 0, "firstRound-m1"], 
+		  [null, null, "firstRound-m2"], 
+		  [null, null, "firstRound-m3"], 
+		  [null, null, "firstRound-m4"]
+		],
+        [ // secondRound
+		  [null, null, "secondRound-m1"],
+		  [1, 4, "secondRound-m2"]
+		],
+        [ // final
+		  [null, null, "final"],
+		  [null, null, "uhhh"]
+		]
       ]
   ]
 };
-
-// These are modified by the sliders
-var resizeParameters = {
-  teamWidth: 60,
-  scoreWidth: 20,
-  matchMargin: 10,
-  roundMargin: 50,
-  init: saveData
-};
- 
-function updateResizeDemo() {
-  $('#save .demo').bracket(resizeParameters);
-}
- 
-// todo: do I need this here?
-// $(updateResizeDemo)
 
  
 /* Called whenever bracket is modified
@@ -47,15 +42,29 @@ function saveFn(data, userData) {
   */
 }
 
+function onclick(data) {
+  $('#matchCallback').text("onclick(data: '" + data + "')")
+  // POST to matchViewVote
+}
  
+function onhover(data, hover) {
+  $('#matchCallback').text("onhover(data: '" + data + "', hover: " + hover + ")")
+}
+
+// main-like function
 $(function() {
     var container = $('div#save .demo')
     container.bracket({
-      init: saveData,
-      save: saveFn,
+      init: bracketData,
       userData: "http://myapi",
-      disableToolbar: true,
-      disableTeamEdit: true
+	  onMatchClick: onclick, // can only be used with save disabled
+      onMatchHover: onhover, // can only be used with save disabled
+      dir: 'lr',  // or 'rl'
+      centerConnectors: true,
+      // save: saveFn,  // edit mode
+      // disableToolbar: true,  // can only use with save enabled
+      // disableTeamEdit: false,  // can only use with save enabled
+
     })
  
     /* You can also inquiry the current data */

@@ -1,0 +1,30 @@
+resize demo
+
+html
+<script type="text/javascript">
+  function resize(target, propName) {
+    resizeParameters[propName] = parseInt(target.value);
+    target.previousElementSibling.textContent = target.value;
+    updateResizeDemo();
+  }
+</script>
+
+<label class="rangePicker">teamWidth: <span>60</span>; <input oninput="resize(this, 'teamWidth')" type="range" min="30" max="100" step="1" value="60"></label>
+<label class="rangePicker">scoreWidth: <span>40</span>; <input oninput="resize(this, 'scoreWidth')" type="range" min="20" max="100" step="1" value="40"></label>
+<label class="rangePicker">matchMargin: <span>40</span>; <input oninput="resize(this, 'matchMargin')" type="range" min="0" max="100" step="1" value="40"></label>
+<label class="rangePicker">roundMargin: <span>20</span>; <input oninput="resize(this, 'roundMargin')" type="range" min="3" max="100" step="1" value="20"></label>
+
+
+js
+// These are modified by the sliders
+var resizeParameters = {
+  teamWidth: 60,
+  scoreWidth: 20,
+  matchMargin: 10,
+  roundMargin: 50,
+  init: bigData
+};
+ 
+function updateResizeDemo() {
+  $('#save .demo').bracket(resizeParameters);
+}
