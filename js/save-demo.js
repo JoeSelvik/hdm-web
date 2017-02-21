@@ -25,6 +25,25 @@ var bracketData = {
   ]
 };
 
+var dog = {
+	teams: [["joe","matt"],["tj","cody"],["george","jim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"]],
+	results: null
+}
+
+var dog = {
+	teams: [
+		["bob", "bob"],
+		["bob", "bob"],
+		["bob", "bob"],
+		[null, null]
+	],
+	results: null
+}
+
+
+var fullData = {"teams":[["joe","matt"],["tj","cody"],["george","jim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"],["ted","tim"]],"results":[[[1,0,"firstRound-m1"],[null,null,"firstRound-m2"],[null,null,"firstRound-m3"],[null,null,"firstRound-m4"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"],[null,null,"firstRound-m1"]],[[null,null,"secondRound-m1"],[null,null,"secondRound-m2"],[null,null,"secondRound-m3"],[null,null,"secondRound-m4"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"],[null,null,"secondRound-m1"]],[[null,null,"sweetSixteen-m1"],[null,null,"sweetSixteen-m2"],[null,null,"sweetSixteen-m3"],[null,null,"sweetSixteen-m4"],[null,null,"sweetSixteen-m1"],[null,null,"sweetSixteen-m1"],[null,null,"sweetSixteen-m1"],[null,null,"sweetSixteen-m1"]],[[null,null,"eliteEight-m1"],[null,null,"eliteEight-m2"],[null,null,"eliteEight-m3"],[null,null,"eliteEight-m4"]],[[1,0,"finalFour-m1"],[null,null,"finalFour-m2"]],[[null,null,"championship"]]]}
+
+
  
 /* Called whenever bracket is modified
  *
@@ -45,17 +64,26 @@ function saveFn(data, userData) {
 function onclick(data) {
   $('#matchCallback').text("onclick(data: '" + data + "')")
   // POST to matchViewVote
+  // tell hdm-service 
 }
  
 function onhover(data, hover) {
   $('#matchCallback').text("onhover(data: '" + data + "', hover: " + hover + ")")
 }
 
-// main-like function
-$(function() {
-    var container = $('div#save .demo')
+function updateBracket(data) {
+	var container = $('div#save .demo')
+	container.bracket({
+		init: data
+	})
+}
+
+function loadBracket(data, status) {
+	console.log(bracketData)
+	console.log(data)
+	var container = $('div#save .demo')
     container.bracket({
-      init: bracketData,
+      init: data,
       userData: "http://myapi",
 	  onMatchClick: onclick, // can only be used with save disabled
       onMatchHover: onhover, // can only be used with save disabled
@@ -64,10 +92,15 @@ $(function() {
       // save: saveFn,  // edit mode
       // disableToolbar: true,  // can only use with save enabled
       // disableTeamEdit: false,  // can only use with save enabled
-
     })
- 
+
     /* You can also inquiry the current data */
     var data = container.bracket('data')
-	$('#dataOutput').text(JSON.stringify(data))
+    $('#dataOutput').text(JSON.stringify(data))
+}
+
+// main-like function
+$(function() {
+	// load bracketData from DB
+    jQuery.get("http://localhost:8080/bracketData/", loadBracket) 
   })
