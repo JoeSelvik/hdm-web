@@ -1,0 +1,5 @@
+- make sure hdm-service is running first
+- load demo.html to grab bracket from hdm-service DB
+- consolidate demo.js and save-demo.js
+- get rid of dog example var in save-demo
+- consolodate index.html and demo.html
